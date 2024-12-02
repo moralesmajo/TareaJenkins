@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #1e1e2f;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #2a2a3d;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #70c1b3;
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #4b4b63;
+            border-radius: 8px;
+            background: #1e1e2f;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+
+        .input-box:focus {
+            border-color: #70c1b3;
+            outline: none;
+            box-shadow: 0 0 8px #70c1b3;
+        }
+
+        .btn {
+            background: #70c1b3;
+            color: #1e1e2f;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #5aa9a3;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #b3cbe0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ingresa un texto</h1>
+        <form onsubmit="handleSubmit(event)">
+            <input type="text" id="userInput" class="input-box" placeholder="Hola :)" required>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the form from reloading the page
+            const input = document.getElementById('userInput').value;
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent = `Escribiste: ${input}`;
+        }
+    </script>
+</body>
+
+</html>
